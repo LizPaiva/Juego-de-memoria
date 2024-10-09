@@ -23,7 +23,7 @@ function shuffle(array) {
     return array;
 }
 
-// Crea las cartas en el tablero
+
 function createBoard() {
     const shuffledImages = shuffle(images);
     for (let i = 0; i < shuffledImages.length; i++) {
@@ -35,18 +35,18 @@ function createBoard() {
     }
 }
 
-// Voltea la carta
+
 function flipCard() {
     const card = this;
     const cardId = card.getAttribute('data-id');
     
-    // Crear una imagen
+   
     const img = document.createElement('img');
     img.src = images[cardId];
-    img.style.width = '100%'; // Asegura que la imagen llene la carta
-    img.style.height = '100%'; // Asegura que la imagen llene la carta
-    card.innerHTML = ''; // Limpiar el contenido anterior
-    card.appendChild(img); // Añadir la imagen a la carta
+    img.style.width = '100%'; 
+    img.style.height = '100%'; 
+    card.innerHTML = ''; 
+    card.appendChild(img); 
     card.classList.add('flipped');
     
     cardValues.push(images[cardId]);
@@ -60,7 +60,7 @@ function flipCard() {
 const errorImageSrc = 'assets/error.png';
 const errorContainer = document.getElementById('error-container');
 
-// Comprueba si hay coincidencia
+
 function checkMatch() {
     const cards = document.querySelectorAll('.card');
     const [firstCardId, secondCardId] = cardIds;
@@ -72,15 +72,15 @@ function checkMatch() {
         errorImage.src = errorImageSrc;
         errorImage.style.width = '180px';
         errorImage.style.height = '180px';
-        errorContainer.innerHTML = ''; // Limpiar el contenedor antes de añadir una nueva imagen
-        errorContainer.appendChild(errorImage); // Añadir la imagen al contenedor de error
+        errorContainer.innerHTML = ''; 
+        errorContainer.appendChild(errorImage); 
 
         setTimeout(() => {
-            cards[firstCardId].innerHTML = ''; // Limpiar las cartas si no coinciden
-            cards[secondCardId].innerHTML = ''; // Limpiar las cartas si no coinciden
+            cards[firstCardId].innerHTML = ''; 
+            cards[secondCardId].innerHTML = ''; 
             cards[firstCardId].classList.remove('flipped');
             cards[secondCardId].classList.remove('flipped');
-            errorContainer.innerHTML = ''; // Elimina la imagen de error
+            errorContainer.innerHTML = ''; 
         }, 1000);
     }
     
